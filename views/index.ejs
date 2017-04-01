@@ -3,21 +3,32 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/index.css' />
+    <style type="text/css">
+      
+    </style>
   </head>
   <body>
-  <header><%= title %></header>
   <div class="left">
+    <div class="image">
+      <img src="">
+    </div>
+    <header><%= title %></header>
+    <button id="nextOne">随机下一曲</button>
+    <button id="stop">停止</button>
     <p class="volume">
-      Volume:<input id="volume" type="range" min="0" max="100" value="60">
+      音量:<input id="volume" type="range" min="0" max="100" value="60">
     </p>
-  	<ul id="list">
-  		<% music.forEach(function(item){%>
-  			<li title="<%= item %>"><%= item %></li><br>
-  		<%})%>
-  	</ul>
+    <p>歌曲列表：</p>
+    <ul id="list">
+      <% music.forEach(function(item){%>
+        <li title="<%= item %>"><%= item %></li>
+      <%})%>
+    </ul>
+    <button id="refresh">刷新播放列表</button>
   </div>
   <div class="right" id="box">
   </div>
+  <script type="text/javascript" src="/javascripts/MusicVisualizer.js"></script>
   <script type="text/javascript" src="/javascripts/index.js"></script>
   </body>
 </html>

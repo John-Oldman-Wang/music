@@ -24,7 +24,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-
+app.get("/musiclist",function(req,res){
+	var fs=require("fs")
+	fs.readdir("./public/musics",function(err,names){
+		if(err) console.log(err)
+		console.log(Array.isArray(names))
+		res.end(JSON.stringify(names))
+	})
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
